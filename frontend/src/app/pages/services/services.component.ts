@@ -6,4 +6,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./services.component.scss']
 })
 export class ServicesComponent {
+  addingService: boolean = false;
+
+  addNew() {
+    this.addingService = true;
+  }
 }
