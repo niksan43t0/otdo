@@ -10,6 +10,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ServicesResolver} from "./pages/services/ServicesResolver";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     BrowserAnimationsModule,
     MatInputModule,
   ],
-  providers: [],
+  providers: [
+    ServicesResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
