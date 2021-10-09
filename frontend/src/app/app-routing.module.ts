@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {NotFoundComponent} from "./pages/NotFoundComponent/not-found.component";
+import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {ServicesComponent} from "./pages/services/services.component";
 import {ServicesResolver} from "./pages/services/ServicesResolver";
 import {MainComponent} from "./pages/main/main.component";

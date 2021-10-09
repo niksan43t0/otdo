@@ -11,5 +11,7 @@ import java.math.BigDecimal
 class ServicesController {
 
     @GetMapping
-    fun getServices(): List<Service> = listOf(Service(1, "Подгъв", BigDecimal.TEN, BigDecimal.TEN))
+    fun getServices(): List<Service> {
+        return listOf(Service(1, "Подгъв", BigDecimal.TEN, BigDecimal.TEN))
+    }
 }

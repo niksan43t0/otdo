@@ -19,8 +19,6 @@ export class ServicesComponent {
   });
 
   constructor(private route: ActivatedRoute) {
-    console.log(this.route.snapshot);
-    console.log(this.route.snapshot.data);
     this.services = this.route.snapshot.data.services;
   }
 
@@ -30,6 +28,6 @@ export class ServicesComponent {
   }
 
   saveService() {
-    this.serviceFormGroup.patchValue({name: null, fromAmount: null, toAmount: null});
+    this.addingService = false;
   }
 }
