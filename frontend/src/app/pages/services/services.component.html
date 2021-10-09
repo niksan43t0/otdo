@@ -1,15 +1,29 @@
 <h1>Услуги</h1>
-<a href="facebook.com">кор</a>
 
-<button (click)="addNew()">Добави нова</button>
-<!--<div *ngIf="addingService">-->
-<!--  <mat-form-field class="full-width">-->
-<!--    <input matInput-->
-<!--           [formControl]="dialogInput"-->
-<!--           type="text"-->
-<!--           [placeholder]="data.inputPlaceholder"-->
-<!--           autocomplete="off">-->
-<!--    <mat-error *ngIf="dialogInput.hasError('genericError')">{{dialogInput.getError('genericError')}}</mat-error>-->
-<!--  </mat-form-field>-->
-<!--</div>-->
+<form *ngIf="addingService" [formGroup]="serviceFormGroup" class="vertical-align">
+  <mat-form-field class="column" appearance="fill">
+    <input matInput formControlName="name" type="text" placeholder="Име" autocomplete="off">
+    <mat-error *ngIf="serviceFormGroup.controls['name'].hasError('required')">
+      Името е задължително.
+    </mat-error>
+    <mat-error *ngIf="serviceFormGroup.controls['name'].hasError('maxlength')">
+      Максималната дължина е 30 символа.
+    </mat-error>
+  </mat-form-field>
 
+  <mat-form-field class="column" appearance="fill">
+    <input matInput formControlName="fromAmount" type="text" placeholder="Минимална цена" autocomplete="off">
+    <mat-error *ngIf="serviceFormGroup.controls['fromAmount'].hasError('required')">
+      Минималната цена е задължителна.
+    </mat-error>
+    <mat-error *ngIf="serviceFormGroup.controls['fromAmount'].hasError('min')">
+      Минималната цена не може да бъде под 0лв.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="column" appearance="fill">
+    <input matInput formControlName="toAmount" type="text" placeholder="Максимална цена" autocomplete="off">
+  </mat-form-field>
+  <button class="column" (click)="saveService()">Запази</button>
+</form>
+<button class="spacer" (click)="addNew()">Добави нова</button>
