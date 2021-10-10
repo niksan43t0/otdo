@@ -15,6 +15,7 @@ import {MessageModalComponent} from "./components/message-modal/message-modal.co
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {HttpClientModule} from "@angular/common/http";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {HttpClientModule} from "@angular/common/http";
     MatInputModule,
     MatDialogModule,
     MatButtonModule,
+    MatCardModule,
   ],
   providers: [
     ServicesResolver

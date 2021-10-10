@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@import "theme";
 
 html, body {
   height: 100%;
@@ -39,10 +41,15 @@ button {
   }
 }
 
-mat-error {
-  color: red;
-}
-
 .spacer {
   margin-top: 20px;
+}
+
+// Theme Init
+.theme-primary {
+  @include angular-material-theme($theme);
+}
+
+.theme-alternate {
+  @include angular-material-color($altTheme);
 }
