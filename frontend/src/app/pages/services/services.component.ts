@@ -13,9 +13,9 @@ export class ServicesComponent {
   addingService: boolean = false;
 
   serviceFormGroup: FormGroup = new FormGroup({
-    name: new FormControl("", [Validators.required, Validators.maxLength(30)]),
+    name: new FormControl("", [Validators.required, Validators.maxLength(50)]),
     fromAmount: new FormControl("", [Validators.required, Validators.min(0)]),
-    toAmount: new FormControl(""),
+    toAmount: new FormControl("", [Validators.min(0)]),
   });
 
   constructor(private route: ActivatedRoute) {
