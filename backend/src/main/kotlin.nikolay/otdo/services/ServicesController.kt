@@ -1,8 +1,6 @@
 package otdo.services
 
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import otdo.services.model.Service
 import java.math.BigDecimal
 
@@ -13,5 +11,15 @@ class ServicesController {
     @GetMapping
     fun getServices(): List<Service> {
         return listOf(Service(1, "Подгъв", BigDecimal.TEN, BigDecimal.TEN))
+    }
+
+    @PostMapping
+    fun saveService(): Long {
+        return 1
+    }
+
+    @PatchMapping
+    fun editService() {
+        return
     }
 }

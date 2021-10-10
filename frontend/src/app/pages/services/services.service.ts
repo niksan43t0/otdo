@@ -22,7 +22,7 @@ export class ServicesService {
     return this.http.post<number>(this.domain, service);
   }
 
-  editService(service: Service): Observable<Service> {
-    return this.http.patch<Service>(this.domain, service);
+  editService(service: Service): Observable<void> {
+    return this.http.patch<void>(this.domain, service);
   }
 }
