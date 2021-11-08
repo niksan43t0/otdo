@@ -1,9 +1,11 @@
 package otdo.services
 
 import org.slf4j.LoggerFactory
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import org.springframework.stereotype.Component
 import otdo.database.SqlLoader
+import otdo.database.queryInPlace
 import otdo.services.model.Service
 import java.lang.invoke.MethodHandles
 
@@ -24,12 +26,23 @@ class ServicesRepository(val jdbcTemplate: NamedParameterJdbcTemplate) {
 
     fun createNewService(service: Service): Long {
         logger.info("[createNewService] {}", service)
-        SqlLoader.GET_SERVICES
-        TODO("Not yet implemented")
+        val params = MapSqlParameterSource()
+            .addValue("name", service.name)
+            .addValue("fromAmount", service.fromAmount)
+            .addValue("toAmount", service.toAmount)
+        return jdbcTemplate.queryInPlace(SqlLoader.INSERT_SERVICE, params) { rs ->
+            rs.next()
+            rs.getLong("id")
+        }!!
     }
 
     fun editService(service: Service) {
         logger.info("[editService] {}", service)
-        TODO("Not yet implemented")
+        val params = MapSqlParameterSource()
+            .addValue("id", service.id)
+            .addValue("name", service.name)
+            .addValue("fromAmount", service.fromAmount)
+            .addValue("toAmount", service.toAmount)
+        jdbcTemplate.update(SqlLoader.UPDATE_SERVICE, params)
     }
 }
