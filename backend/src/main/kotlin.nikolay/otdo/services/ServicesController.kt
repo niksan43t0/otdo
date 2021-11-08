@@ -14,7 +14,8 @@ class ServicesController {
     }
 
     @PostMapping
-    fun saveService(): Long {
+    fun saveService(@RequestBody service: Service): Long {
+        service.name
         return 1
     }
 }

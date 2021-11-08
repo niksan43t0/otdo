@@ -21,8 +21,4 @@ export class ServicesService {
   saveService(service: Service): Observable<number> {
     return this.http.post<number>(this.domain, service);
   }
-
-  editService(service: Service): Observable<void> {
-    return this.http.patch<void>(this.domain, service);
-  }
 }

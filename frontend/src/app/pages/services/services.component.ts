@@ -13,6 +13,7 @@ import {finalize} from "rxjs/operators";
 export class ServicesComponent {
   services: Service[] = [];
   creatingOrEditingService: boolean = false;
+  editingServiceId: number | null | undefined = null;
   savingNewService: boolean = false;
 
   serviceFormGroup: FormGroup = new FormGroup({
@@ -31,13 +32,14 @@ export class ServicesComponent {
     } else this.serviceFormGroup.setValue({name: null, fromAmount: null, toAmount: null,});
     this.serviceFormGroup.markAsUntouched();
     this.creatingOrEditingService = true;
+    this.editingServiceId = service?.id;
   }
 
   saveService() {
     this.serviceFormGroup.markAllAsTouched();
     if (this.serviceFormGroup.valid) {
       this.savingNewService = true;
-      this.servicesService.saveService({...this.serviceFormGroup.value})
+      this.servicesService.saveService({...this.serviceFormGroup.value, id: this.editingServiceId})
         .pipe(finalize(() => this.savingNewService = false))
         .subscribe((savedServiceId) => {
           const editedServiceIndex = this.services.findIndex(it => it.id == savedServiceId);
