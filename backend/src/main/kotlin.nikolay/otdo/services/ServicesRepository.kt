@@ -9,11 +9,12 @@ import otdo.database.queryInPlace
 import otdo.services.model.Service
 import java.lang.invoke.MethodHandles
 
-@Component
+@Component //TODO when replace with @Repository and open, can't find jdbcTemplate then
 class ServicesRepository(val jdbcTemplate: NamedParameterJdbcTemplate) {
     private val logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass().canonicalName)
 
     fun getServices(): List<Service> {
+        logger.info("[getServices]")
         return jdbcTemplate.query(SqlLoader.GET_SERVICES) { rs, _ ->
             Service(
                 rs.getLong("id"),
