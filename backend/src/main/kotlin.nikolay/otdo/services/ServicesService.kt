@@ -16,4 +16,8 @@ class ServicesService(private val servicesRepository: ServicesRepository) {
             service.id
         }
     }
+
+    fun deleteService(id: Long) {
+        servicesRepository.deleteService(id)
+    }
 }

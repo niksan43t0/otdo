@@ -5,6 +5,7 @@
     <span>{{service.fromAmount}} лв.</span>
     <span *ngIf="!!service.toAmount"> - {{service.toAmount}} лв.</span>
     <button *ngIf="!creatingOrEditingService" mat-button (click)="editOrAddNew(service)">Редактирай</button>
+    <button *ngIf="!creatingOrEditingService" mat-button (click)="openDeleteModal(service)">Изтрий</button>
   </div>
 </mat-card>
 

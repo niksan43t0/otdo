@@ -21,4 +21,8 @@ export class ServicesService {
   saveService(service: Service): Observable<number> {
     return this.http.post<number>(this.domain, service);
   }
+
+  deleteService(id: number) {
+    return this.http.delete(`${this.domain}/${id}`);
+  }
 }

@@ -46,4 +46,9 @@ class ServicesRepository(val jdbcTemplate: NamedParameterJdbcTemplate) {
             .addValue("toAmount", service.toAmount)
         jdbcTemplate.update(SqlLoader.UPDATE_SERVICE, params)
     }
+
+    fun deleteService(id: Long) {
+        logger.info("[deleteService] {}", id)
+        jdbcTemplate.update(SqlLoader.DELETE_SERVICE, MapSqlParameterSource("id", id))
+    }
 }

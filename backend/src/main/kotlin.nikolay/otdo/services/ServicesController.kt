@@ -16,4 +16,9 @@ class ServicesController(private val servicesService: ServicesService) {
     fun saveService(@RequestBody service: Service): Long {
         return servicesService.saveService(service)
     }
+
+    @DeleteMapping("/{id}")
+    fun deleteService(@PathVariable("id") id: Long) {
+        servicesService.deleteService(id)
+    }
 }

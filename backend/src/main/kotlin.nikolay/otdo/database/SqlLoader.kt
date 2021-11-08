@@ -14,6 +14,7 @@ class SqlLoader {
         lateinit var GET_SERVICES: String
         lateinit var INSERT_SERVICE: String
         lateinit var UPDATE_SERVICE: String
+        lateinit var DELETE_SERVICE: String
     }
 
     constructor()

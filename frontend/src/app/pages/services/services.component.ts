@@ -4,6 +4,8 @@ import {Service} from "./model/Service";
 import {ActivatedRoute} from "@angular/router";
 import {ServicesService} from "./services.service";
 import {finalize} from "rxjs/operators";
+import {MatDialog} from "@angular/material/dialog";
+import {ConfirmationModalComponent} from "../../components/confirmation-modal/confirmation-modal.component";
 
 @Component({
   selector: 'services-component',
@@ -22,7 +24,7 @@ export class ServicesComponent {
     toAmount: new FormControl("", [Validators.min(0)]), //TODO validation min = fromAmount
   });
 
-  constructor(private route: ActivatedRoute, private servicesService: ServicesService) {
+  constructor(private route: ActivatedRoute, private servicesService: ServicesService, private dialogService: MatDialog) {
     this.services = this.route.snapshot.data.services;
   }
 
@@ -55,5 +57,19 @@ export class ServicesComponent {
 
   cancel() {
     this.creatingOrEditingService = false;
+  }
+
+  openDeleteModal(service: Service) {
+    this.dialogService.open(ConfirmationModalComponent, {
+      data: {
+        title: "Сигурни ли сте?",
+        message: `Ще изтриете услуга ${service.name}.`,
+      }
+    }).afterClosed().subscribe(result => {
+      if (result) {
+        this.servicesService.deleteService(service.id)
+          .subscribe(() => this.services = this.services.filter(it => it.id != service.id));
+      }
+    });
   }
 }
