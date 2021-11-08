@@ -16,6 +16,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
+import {ConfirmationModalComponent} from "./components/confirmation-modal/confirmation-modal.component";
 
 @NgModule({
   declarations: [
@@ -24,9 +25,11 @@ import {MatCardModule} from "@angular/material/card";
     NotFoundComponent,
     ServicesComponent,
     MessageModalComponent,
+    ConfirmationModalComponent,
   ],
   entryComponents: [
     MessageModalComponent,
+    ConfirmationModalComponent,
   ],
   imports: [
     BrowserModule,
