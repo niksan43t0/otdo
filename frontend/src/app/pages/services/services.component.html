@@ -4,11 +4,13 @@
     <span>{{service.name}}: </span>
     <span>{{service.fromAmount}} лв.</span>
     <span *ngIf="!!service.toAmount"> - {{service.toAmount}} лв.</span>
+    <button *ngIf="!creatingOrEditingService" mat-button (click)="editOrAddNew(service)">Редактирай</button>
   </div>
 </mat-card>
 
 <mat-card class="spacer">
-  <form *ngIf="creatingNewService" [formGroup]="serviceFormGroup" class="vertical-align" autocomplete="off">
+  <form *ngIf="creatingOrEditingService" [formGroup]="serviceFormGroup" class="vertical-align" autocomplete="off"
+        (ngSubmit)="saveService()">
     <input autocomplete="false" name="hidden" type="text" class="d-none">
     <mat-form-field class="column" appearance="outline">
       <mat-label>Име</mat-label>
@@ -39,7 +41,8 @@
         Максималната цена не може да бъде под 0лв.
       </mat-error>
     </mat-form-field>
-    <button mat-button class="column" (click)="saveService()" [disabled]="savingNewService">Запази</button>
+    <button mat-button class="column" type="submit" [disabled]="savingNewService">Запази</button>
+    <button mat-button class="column" type="button" (click)="cancel()" [disabled]="savingNewService">Отказ</button>
   </form>
-  <button mat-button class="spacer" (click)="addNew()">Добави нова</button>
+  <button *ngIf="!creatingOrEditingService" mat-button class="spacer" (click)="editOrAddNew()">Добави нова</button>
 </mat-card>

@@ -17,9 +17,4 @@ class ServicesController {
     fun saveService(): Long {
         return 1
     }
-
-    @PatchMapping
-    fun editService() {
-        return
-    }
 }

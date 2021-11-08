@@ -12,7 +12,7 @@ import {finalize} from "rxjs/operators";
 })
 export class ServicesComponent {
   services: Service[] = [];
-  creatingNewService: boolean = false;
+  creatingOrEditingService: boolean = false;
   savingNewService: boolean = false;
 
   serviceFormGroup: FormGroup = new FormGroup({
@@ -25,9 +25,12 @@ export class ServicesComponent {
     this.services = this.route.snapshot.data.services;
   }
 
-  addNew() {
-    this.serviceFormGroup.patchValue({name: null, fromAmount: null, toAmount: null});
-    this.creatingNewService = true;
+  editOrAddNew(service?: Service) {
+    if (service != null) {
+      this.serviceFormGroup.setValue({name: service.name, fromAmount: service.fromAmount, toAmount: service.toAmount,});
+    } else this.serviceFormGroup.setValue({name: null, fromAmount: null, toAmount: null,});
+    this.serviceFormGroup.markAsUntouched();
+    this.creatingOrEditingService = true;
   }
 
   saveService() {
@@ -36,10 +39,19 @@ export class ServicesComponent {
       this.savingNewService = true;
       this.servicesService.saveService({...this.serviceFormGroup.value})
         .pipe(finalize(() => this.savingNewService = false))
-        .subscribe((id) => {
-          this.services = [...this.services, {...this.serviceFormGroup.value, id}];
-          this.creatingNewService = false;
+        .subscribe((savedServiceId) => {
+          const editedServiceIndex = this.services.findIndex(it => it.id == savedServiceId);
+          if (editedServiceIndex != -1) {
+            this.services[editedServiceIndex] = {...this.serviceFormGroup.value, id: savedServiceId};
+          } else {
+            this.services = [...this.services, {...this.serviceFormGroup.value, id: savedServiceId}];
+          }
+          this.creatingOrEditingService = false;
         });
     }
+  }
+
+  cancel() {
+    this.creatingOrEditingService = false;
   }
 }
