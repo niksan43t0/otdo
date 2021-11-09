@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/theming';
 @import "theme";
+@import "variables";
+@import "~bootstrap-4-grid/scss/grid";
 
 html, body {
   height: 100%;
@@ -19,10 +21,6 @@ body {
 .vertical-align {
   display: flex;
   align-items: center;
-}
-
-.d-none {
-  display: none;
 }
 
 .auto-margin {
