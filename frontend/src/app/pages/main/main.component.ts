@@ -7,7 +7,10 @@ import {Router} from "@angular/router";
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
+  numbers: number[];
+
   constructor(private router: Router) {
+    this.numbers = Array(2000).fill(0).map((x, i) => i);
   }
 
   navigateToServices() {
