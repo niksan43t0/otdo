@@ -1,0 +1,11 @@
+.main-component {
+  .moving-paper {
+    top: 20vh;
+    left: 10vw;
+    width: 100vw;
+    height: 70vh;
+    background-color: white;
+    transform: skewX(-15deg);
+    transition: margin 700ms;
+  }
+}
