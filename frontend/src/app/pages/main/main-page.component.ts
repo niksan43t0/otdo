@@ -2,11 +2,11 @@ import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'main-component',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  selector: 'main-page-component',
+  templateUrl: './main-page.component.html',
+  styleUrls: ['./main-page.component.scss']
 })
-export class MainComponent {
+export class MainPageComponent {
   numbers: number[];
 
   constructor(private router: Router) {

@@ -4,7 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
-import {MainComponent} from "./pages/main/main.component";
+import {MainPageComponent} from "./pages/main/main-page.component";
 import {ServicesComponent} from "./pages/services/services.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -23,7 +23,7 @@ import {NgScrollbarModule} from "ngx-scrollbar";
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
+    MainPageComponent,
     NotFoundComponent,
     ServicesComponent,
     MessageModalComponent,
