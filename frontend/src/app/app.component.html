@@ -1,4 +1,4 @@
 <app-navbar></app-navbar>
-<ng-scrollbar class="app-root vh-100">
+<ng-scrollbar class="app-root vh-100" (updated)="updateVhPixels()">
   <router-outlet (activate)="onActivateRouter($event)"></router-outlet>
 </ng-scrollbar>
