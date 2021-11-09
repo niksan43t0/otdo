@@ -1,10 +1,28 @@
 .main-page {
+  height: 300vh; //TODO remove
+
+  $paper-height-top: 20vh;
+  $paper-height: 70vh;
+
   .moving-paper {
-    top: 20vh;
+    top: $paper-height-top;
     left: 10vw;
     width: 100vw;
-    height: 70vh;
+    height: $paper-height;
     background-color: white;
     transform: skewX(-15deg);
+    overflow: hidden;
+
+    .moving-paper-inside {
+      transform: skewX(15deg);
+    }
+
+    border: 2px solid black; //TODO cooler
+  }
+
+  .main-first-page {
+    top: $paper-height-top;
+    left: 10vw;
+    height: $paper-height;
   }
 }

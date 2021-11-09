@@ -11,6 +11,7 @@ import {filter, map} from "rxjs/operators";
 export class AppComponent implements AfterViewInit, OnDestroy {
   private scrollSubscription = Subscription.EMPTY;
   private mainMovingPaperElement: HTMLElement | null = null;
+  private mainMovingPaperInsideElement: HTMLElement | null = null;
   private vhPixels: number = 0;
 
   // Get scrollbar component reference
@@ -29,6 +30,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       ).subscribe((scrolled) => this.zone.run(() => {
         const marginLeftInVw = scrolled / this.vhPixels * 100;
         this.mainMovingPaperElement!!.style.marginLeft = `${marginLeftInVw}vw`;
+        this.mainMovingPaperInsideElement!!.style.marginLeft = `-${marginLeftInVw}vw`;
       }));
   }
 
@@ -38,6 +40,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   onActivateRouter($event: any) {
     this.mainMovingPaperElement = document.getElementById("main-page-moving-paper");
+    this.mainMovingPaperInsideElement = document.getElementById("main-page-moving-paper-inside");
   }
 
   updateVhPixels() {
