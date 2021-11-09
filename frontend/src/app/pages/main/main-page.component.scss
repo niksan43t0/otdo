@@ -1,6 +1,7 @@
 .main-page {
   height: 300vh; //TODO remove
   $transform-skew: 15deg;
+  background-color: saddlebrown;
 
   .main-first-page, .moving-paper {
     top: 20vh;
@@ -18,7 +19,8 @@
       transform: skewX($transform-skew);
     }
 
-    border: 2px solid black; //TODO cooler
+    -webkit-box-shadow: -6px 7px 25px 4px rgba(0,0,0,0.79);
+    box-shadow: -6px 7px 25px 4px rgba(0,0,0,0.79);
   }
 
   .logo {
