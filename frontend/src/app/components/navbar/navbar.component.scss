@@ -1,6 +1,11 @@
 @import "src/variables";
 
 .navbar {
+  padding: 20px;
   background-color: white;
   z-index: $z-index-navbar;
+
+  .logo {
+    height: 75px;
+  }
 }
