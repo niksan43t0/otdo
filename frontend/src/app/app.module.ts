@@ -18,6 +18,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {ConfirmationModalComponent} from "./components/confirmation-modal/confirmation-modal.component";
 import {NavbarComponent} from "./components/navbar/navbar.component";
+import {NgScrollbarModule} from "ngx-scrollbar";
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {NavbarComponent} from "./components/navbar/navbar.component";
     MatDialogModule,
     MatButtonModule,
     MatCardModule,
+    NgScrollbarModule,
   ],
   providers: [
     ServicesResolver
