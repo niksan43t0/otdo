@@ -4,14 +4,19 @@
 @import "variables";
 @import "~bootstrap-4-grid/scss/grid";
 
+@font-face {
+  font-family: Custom;
+  src: url(/assets/fonts/custom.ttf) format("opentype");
+}
+
 html, body {
   height: 100%;
+  font-family: Custom, sans-serif;
+  font-size: 30px;
 }
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-size: 14px;
 }
 
 scrollbar-y {
