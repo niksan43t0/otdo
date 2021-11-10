@@ -51,6 +51,14 @@ button {
   margin-top: 20px;
 }
 
+.big-spacer {
+  margin-top: 10vh;
+}
+
+.big-spacer-bottom {
+  margin-bottom: 10vh;
+}
+
 // Theme Init
 .theme-primary {
   @include angular-material-theme($theme);

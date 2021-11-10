@@ -1,2 +1,18 @@
 $z-index-navbar: 100;
 $z-index-main-scrollbar: 200;
+
+/* Override bootstrap container */
+$grid-breakpoints: (
+  xs: 0,
+  sm: 577px,
+  md: 769px,
+  lg: 1281px,
+  xl: 1601px
+) !default;
+
+$container-max-widths: (
+  sm: 576px,
+  md: 768px,
+  lg: 1280px,
+  xl: 1600px
+) !default;
