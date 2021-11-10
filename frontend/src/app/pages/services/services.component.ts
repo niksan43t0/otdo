@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Service} from "./model/Service";
 import {ActivatedRoute} from "@angular/router";
 import {ServicesService} from "./services.service";
-import {finalize} from "rxjs/operators";
+import {filter, finalize, switchMap} from "rxjs/operators";
 import {MatDialog} from "@angular/material/dialog";
 import {ConfirmationModalComponent} from "../../components/confirmation-modal/confirmation-modal.component";
 
@@ -65,11 +65,10 @@ export class ServicesComponent {
         title: "Сигурни ли сте?",
         message: `Ще изтриете услуга ${service.name}.`,
       }
-    }).afterClosed().subscribe(result => {
-      if (result) {
-        this.servicesService.deleteService(service.id)
-          .subscribe(() => this.services = this.services.filter(it => it.id != service.id));
-      }
-    });
+    }).afterClosed()
+      .pipe(
+        filter((result) => result),
+        switchMap(() => this.servicesService.deleteService(service.id)),
+      ).subscribe(() => this.services = this.services.filter(it => it.id != service.id));
   }
 }
