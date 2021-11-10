@@ -1,7 +1,8 @@
 import {AfterViewInit, Component, NgZone, OnDestroy, ViewChild} from '@angular/core';
 import {Subscription} from "rxjs";
 import {NgScrollbar} from "ngx-scrollbar";
-import {filter, map} from "rxjs/operators";
+import {filter} from "rxjs/operators";
+import {MainPageComponent} from "./pages/main/main-page.component";
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,7 @@ import {filter, map} from "rxjs/operators";
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
   private scrollSubscription = Subscription.EMPTY;
-  private mainMovingPaperElement: HTMLElement | null = null;
-  private mainMovingPaperInsideElement: HTMLElement | null = null;
+  private mainPageComponent: MainPageComponent | null = null;
   private vhPixels: number = 0;
 
   // Get scrollbar component reference
@@ -23,14 +23,15 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.updateVhPixels();
     this.scrollSubscription = this.scrollbarRef.scrolled
-      .pipe(
-        filter(() => this.mainMovingPaperElement != null),
-        map((e: Event) => (e.target as HTMLElement).scrollTop),
-        filter((scrolled) => scrolled <= this.vhPixels),
-      ).subscribe((scrolled) => this.zone.run(() => {
-        const marginLeftInVw = scrolled / this.vhPixels * 100;
-        this.mainMovingPaperElement!!.style.marginLeft = `${marginLeftInVw}vw`;
-        this.mainMovingPaperInsideElement!!.style.marginLeft = `-${marginLeftInVw}vw`;
+      .pipe(filter(() => this.mainPageComponent != null))
+      .subscribe((e: Event) => this.zone.run(() => {
+        const scrolled = (e.target as HTMLElement).scrollTop;
+        this.mainPageComponent!!.currentScrollPosition = scrolled;
+        if (scrolled <= this.vhPixels) { //TODO can move inside MainPageComponent if unneeded here
+          const marginLeftInVw = scrolled / this.vhPixels * 100;
+          this.mainPageComponent!!.movingPaperRef.nativeElement.style.marginLeft = `${marginLeftInVw}vw`;
+          this.mainPageComponent!!.movingPaperInside.nativeElement.style.marginLeft = `-${marginLeftInVw}vw`;
+        }
       }));
   }
 
@@ -38,9 +39,8 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     this.scrollSubscription.unsubscribe();
   }
 
-  onActivateRouter($event: any) {
-    this.mainMovingPaperElement = document.getElementById("main-page-moving-paper");
-    this.mainMovingPaperInsideElement = document.getElementById("main-page-moving-paper-inside");
+  onActivateRouter(component: any) {
+    this.mainPageComponent = component instanceof MainPageComponent ? component : null;
   }
 
   updateVhPixels() {
