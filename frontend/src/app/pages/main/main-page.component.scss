@@ -7,9 +7,10 @@
   $space-left-of-logo: 10vw;
   $paper-height: 70vh;
 
+  padding-top: $space-above-logo;
+
   .main-first-page {
-    padding-top: $space-above-logo;
-    padding-left: $space-left-of-logo;
+    margin-left: $space-left-of-logo;
     height: $paper-height;
   }
 
