@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -7,6 +7,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent {
+  @ViewChild('mainPageMovingPaper') movingPaperRef!: ElementRef;
+  @ViewChild('mainPageMovingPaperInside') movingPaperInside!: ElementRef;
+
   constructor(private router: Router) {
   }
 
