@@ -19,6 +19,7 @@ import {MatCardModule} from "@angular/material/card";
 import {ConfirmationModalComponent} from "./components/confirmation-modal/confirmation-modal.component";
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {NgScrollbarModule} from "ngx-scrollbar";
+import {PostComponent} from "./components/post/post.component";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {NgScrollbarModule} from "ngx-scrollbar";
     MessageModalComponent,
     ConfirmationModalComponent,
     NavbarComponent,
+    PostComponent,
   ],
   entryComponents: [
     MessageModalComponent,
