@@ -3,13 +3,20 @@
   $transform-skew: 15deg;
   background-color: black;
 
-  .main-first-page, .moving-paper {
-    top: 20vh;
-    left: 10vw;
-    height: 70vh;
+  $space-above-logo: 20vh;
+  $space-left-of-logo: 10vw;
+  $paper-height: 70vh;
+
+  .main-first-page {
+    padding-top: $space-above-logo;
+    padding-left: $space-left-of-logo;
+    height: $paper-height;
   }
 
   .moving-paper {
+    top: $space-above-logo;
+    left: $space-left-of-logo;
+    height: $paper-height;
     width: 100vw;
     background-color: white;
     transform: skewX(-$transform-skew);
