@@ -4,4 +4,38 @@
   .image {
     max-width: 100%;
   }
+
+  .start-right-hidden {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    -o-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  .start-left-hidden {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+    -moz-transform: translateX(-20px);
+    -ms-transform: translateX(-20px);
+    -o-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+
+  .fade-in {
+    opacity: 1;
+
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+
+    -webkit-transition: 1000ms ease-in;
+    -moz-transition: 1000ms ease-in;
+    -ms-transition: 1000ms ease-in;
+    -o-transition: 1000ms ease-in;
+    transition: 1000ms ease-in;
+  }
 }

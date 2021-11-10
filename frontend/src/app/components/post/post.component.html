@@ -2,12 +2,11 @@
   <div class="container-xl">
     <div class="row" [ngClass]="{'flex-row-reverse' : pictureOnRight}">
       <div class="col-6 big-spacer big-spacer-bottom">
-        <img #img src="assets/images/picture1.jpg" alt="" class="image opacity-0"
-             [@fadeInLeft]="!pictureOnRight && fadeState" [@fadeInRight]="pictureOnRight && fadeState"/>
+        <img #img src="assets/images/picture1.jpg" alt="" class="image"
+             [ngClass]="{'start-left-hidden' : !pictureOnRight, 'start-right-hidden' : pictureOnRight}"/>
       </div>
       <div class="col-6 big-spacer big-spacer-bottom vertical-align">
-        <p #text class="opacity-0"
-           [@fadeInRight]="!pictureOnRight && fadeState" [@fadeInLeft]="pictureOnRight && fadeState">
+        <p #text [ngClass]="{'start-left-hidden' : pictureOnRight, 'start-right-hidden' : !pictureOnRight}">
           Лорем ипсум долор сит амет, амет рецусабо ест ут, ат яуо одио дицам молестие, ферри цаусае видиссе ин мел.
           Солеат детерруиссет дуо ат, но иус вери фалли, аутем волуптатум вим ид. Еум чоро игнота фацилис ин. Нам
           алияуип
