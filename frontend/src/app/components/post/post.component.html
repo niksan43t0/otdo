@@ -1,14 +1,19 @@
 <div class="post">
   <div class="container-xl">
-    <div class="row">
+    <div class="row" [ngClass]="{'flex-row-reverse' : pictureOnRight}">
       <div class="col-6 big-spacer big-spacer-bottom">
-        <img src="assets/images/picture1.jpg" alt="" class="image"/>
+        <img #img src="assets/images/picture1.jpg" alt="" class="image opacity-0"
+             [@fadeInLeft]="!pictureOnRight && fadeState" [@fadeInRight]="pictureOnRight && fadeState"/>
       </div>
       <div class="col-6 big-spacer big-spacer-bottom vertical-align">
-        Лорем ипсум долор сит амет, амет рецусабо ест ут, ат яуо одио дицам молестие, ферри цаусае видиссе ин мел.
-        Солеат детерруиссет дуо ат, но иус вери фалли, аутем волуптатум вим ид. Еум чоро игнота фацилис ин. Нам алияуип
-        фиерент репримияуе ад, ид вениам фуиссет вим. Перципит форенсибус интеллегебат вих ет. Цум ад виртуте волумус,
-        еи меа мунди утамур посидониум.
+        <p #text class="opacity-0"
+           [@fadeInRight]="!pictureOnRight && fadeState" [@fadeInLeft]="pictureOnRight && fadeState">
+          Лорем ипсум долор сит амет, амет рецусабо ест ут, ат яуо одио дицам молестие, ферри цаусае видиссе ин мел.
+          Солеат детерруиссет дуо ат, но иус вери фалли, аутем волуптатум вим ид. Еум чоро игнота фацилис ин. Нам
+          алияуип
+          фиерент репримияуе ад, ид вениам фуиссет вим. Перципит форенсибус интеллегебат вих ет. Цум ад виртуте волумус,
+          еи меа мунди утамур посидониум.
+        </p>
       </div>
       <!--  //option to decide pictire is left or right-->
       <!--  //animation for picture and text-->

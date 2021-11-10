@@ -64,6 +64,10 @@ button {
   margin-bottom: 10vh;
 }
 
+.opacity-0 {
+  opacity: 0;
+}
+
 // Theme Init
 .theme-primary {
   @include angular-material-theme($theme);
