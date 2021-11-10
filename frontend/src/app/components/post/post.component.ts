@@ -1,21 +1,24 @@
-import {Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {ViewRangePixels} from "../../pages/main/main-page.component";
 
 @Component({
   selector: 'post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
 })
-export class PostComponent {
+export class PostComponent implements OnChanges {
   @Input() pictureOnRight: boolean = false;
-  @Input() triggerAnimation: boolean = false;
+  @Input() viewRangePixels!: ViewRangePixels;
+  animationTriggered: boolean = false;
 
-  @ViewChild('img') imgRef!: ElementRef;
-  @ViewChild('text') textRef!: ElementRef;
+  constructor(private elRef: ElementRef) {
+  }
 
-  constructor() {
-    setTimeout(() => {
-      this.imgRef.nativeElement.classList.add("fade-in");
-      this.textRef.nativeElement.classList.add("fade-in");
-    }, 1000)
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!this.animationTriggered && !!changes.viewRangePixels) {
+      if (this.elRef.nativeElement.offsetTop < (changes.viewRangePixels.currentValue.to - 200)) {
+        this.animationTriggered = true;
+      }
+    }
   }
 }

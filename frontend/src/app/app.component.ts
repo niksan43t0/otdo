@@ -2,7 +2,7 @@ import {AfterViewInit, Component, NgZone, OnDestroy, ViewChild} from '@angular/c
 import {Subscription} from "rxjs";
 import {NgScrollbar} from "ngx-scrollbar";
 import {filter} from "rxjs/operators";
-import {MainPageComponent} from "./pages/main/main-page.component";
+import {MainPageComponent, ViewRangePixels} from "./pages/main/main-page.component";
 
 @Component({
   selector: 'app-root',
@@ -26,7 +26,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       .pipe(filter(() => this.mainPageComponent != null))
       .subscribe((e: Event) => this.zone.run(() => {
         const scrolled = (e.target as HTMLElement).scrollTop;
-        this.mainPageComponent!!.currentScrollPosition = scrolled;
+        this.mainPageComponent!!.viewRangePixels = new ViewRangePixels(scrolled, scrolled + this.vhPixels);
         if (scrolled <= this.vhPixels) { //TODO can move inside MainPageComponent if unneeded here
           const marginLeftInVw = scrolled / this.vhPixels * 100;
           this.mainPageComponent!!.movingPaperRef.nativeElement.style.marginLeft = `${marginLeftInVw}vw`;

@@ -1,5 +1,4 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'main-page-component',
@@ -9,15 +8,15 @@ import {Router} from "@angular/router";
 export class MainPageComponent {
   @ViewChild('mainPageMovingPaper') movingPaperRef!: ElementRef;
   @ViewChild('mainPageMovingPaperInside') movingPaperInside!: ElementRef;
-  currentScrollPosition: number = 0;
+  viewRangePixels: ViewRangePixels = new ViewRangePixels(0, 0);
+}
 
-  constructor(private router: Router) {
-    setInterval(() => {
-      console.log(this.currentScrollPosition);
-    }, 1000)
-  }
+export class ViewRangePixels {
+  from: number;
+  to: number;
 
-  navigateToServices() {
-    this.router.navigate(["services"]);
+  constructor(from: number, to: number) {
+    this.from = from;
+    this.to = to;
   }
 }
