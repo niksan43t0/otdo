@@ -9,10 +9,10 @@ import {ConfirmationModalComponent} from "../../components/confirmation-modal/co
 
 @Component({
   selector: 'services-component',
-  templateUrl: './services.component.html',
-  styleUrls: ['./services.component.scss']
+  templateUrl: './prices.component.html',
+  styleUrls: ['./prices.component.scss']
 })
-export class ServicesComponent {
+export class PricesComponent {
   services: Service[] = [];
   creatingOrEditingService: boolean = false;
   editingServiceId: number | null | undefined = null;

@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {MainPageComponent} from "./pages/main/main-page.component";
-import {ServicesComponent} from "./pages/services/services.component";
+import {PricesComponent} from "./pages/services/prices.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
@@ -29,7 +29,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     AppComponent,
     MainPageComponent,
     NotFoundComponent,
-    ServicesComponent,
+    PricesComponent,
     MessageModalComponent,
     ConfirmationModalComponent,
     NavbarComponent,
