@@ -2,7 +2,8 @@ import {AfterViewInit, Component, NgZone, OnDestroy, ViewChild} from '@angular/c
 import {Subscription} from "rxjs";
 import {NgScrollbar} from "ngx-scrollbar";
 import {filter} from "rxjs/operators";
-import {MainPageComponent, ViewRangePixels} from "./pages/main/main-page.component";
+import {MainPageComponent} from "./pages/main/main-page.component";
+import {ViewRangePixels} from "./pages/main/model/ViewRangePixels";
 
 @Component({
   selector: 'app-root',

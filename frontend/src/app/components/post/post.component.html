@@ -2,7 +2,7 @@
   <div class="container-xl">
     <div class="row" [ngClass]="{'flex-row-reverse' : pictureOnRight}">
       <div class="col-6 big-spacer big-spacer-bottom vertical-align">
-        <img src="assets/images/picture2.jpg" alt="" class="image"
+        <img [src]="postData.pictureSrc" alt="" class="image"
              [ngClass]="{
          'start-left-hidden' : !pictureOnRight,
          'start-right-hidden' : pictureOnRight,
@@ -15,16 +15,9 @@
          'start-right-hidden' : !pictureOnRight,
          'fade-in' : animationTriggered
          }">
-          Лорем ипсум долор сит амет, амет рецусабо ест ут, ат яуо одио дицам молестие, ферри цаусае видиссе ин мел.
-          Солеат детерруиссет дуо ат, но иус вери фалли, аутем волуптатум вим ид. Еум чоро игнота фацилис ин. Нам
-          алияуип
-          фиерент репримияуе ад, ид вениам фуиссет вим. Перципит форенсибус интеллегебат вих ет. Цум ад виртуте волумус,
-          еи меа мунди утамур посидониум.
+          {{postData.text}}
         </p>
       </div>
-      <!--  //option to decide pictire is left or right-->
-      <!--  //animation for picture and text-->
-      <!--  //picture and text come from upper component-->
       <!--  //background color parameter-->
     </div>
   </div>

@@ -20,6 +20,7 @@ import {ConfirmationModalComponent} from "./components/confirmation-modal/confir
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {NgScrollbarModule} from "ngx-scrollbar";
 import {PostComponent} from "./components/post/post.component";
+import {MainPageResolver} from "./pages/main/MainPageResolver";
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {PostComponent} from "./components/post/post.component";
     NgScrollbarModule,
   ],
   providers: [
-    ServicesResolver
+    ServicesResolver,
+    MainPageResolver,
   ],
   bootstrap: [AppComponent]
 })

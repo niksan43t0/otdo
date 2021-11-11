@@ -1,5 +1,6 @@
 import {Component, ElementRef, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {ViewRangePixels} from "../../pages/main/main-page.component";
+import {Post} from "../../pages/main/model/Post";
+import {ViewRangePixels} from "../../pages/main/model/ViewRangePixels";
 
 @Component({
   selector: 'post',
@@ -7,6 +8,7 @@ import {ViewRangePixels} from "../../pages/main/main-page.component";
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent implements OnChanges {
+  @Input() postData!: Post
   @Input() pictureOnRight: boolean = false;
   @Input() viewRangePixels!: ViewRangePixels;
   animationTriggered: boolean = false;
