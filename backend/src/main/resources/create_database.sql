@@ -7,6 +7,13 @@ CREATE TABLE services
     del_flag    BOOLEAN            NOT NULL DEFAULT FALSE
 );
 
+INSERT INTO services(name, from_amount, to_amount)
+VALUES ('Подгъв', 5, 10),
+       ('Скъсяване', 10, NULL),
+       ('Смяна на цип', 5, 15),
+       ('Оверлог', 10, 15),
+       ('Поставяне на копчета', 5, 7);
+
 CREATE TABLE posts
 (
     id               SERIAL PRIMARY KEY NOT NULL,
@@ -29,4 +36,4 @@ VALUES ('Лорем', 'PICTURE_LEFT', 'OVERVIEW',
         'black', 'white', 'assets/images/picture2.jpg'),
        ('Лорем', 'PICTURE_BOTTOM', 'OVERVIEW',
         'Ид яуалисяуе репрехендунт вел, омнесяуе оффициис про еа, еум те лаудем воцент омнесяуе. Нец граеци аппареат цонцлудатуряуе ин. Но аццумсан сцрибентур вел, граеци утамур сингулис сит те. Ан еам вери либрис инцидеринт, синт иллуд пауло яуо ан. Еу мел фацилисис диссентиас. Еос еи цибо хабемус, суммо еуисмод аццусам сеа еи.',
-        'white', '#1b1b1b', 'assets/images/picture3.jpg')
+        'white', '#1b1b1b', 'assets/images/picture3.jpg');
