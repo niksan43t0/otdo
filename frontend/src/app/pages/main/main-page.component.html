@@ -9,11 +9,13 @@
 
 
   <div class="big-spacer">
-    <post [pictureOnRight]="true" [viewRangePixels]="viewRangePixels">
-    </post>
-    <post [viewRangePixels]="viewRangePixels">
-    </post>
-    <post [pictureOnRight]="true" [viewRangePixels]="viewRangePixels">
-    </post>
+    <ng-container *ngFor="let post of posts; let index = index">
+      <post [pictureOnRight]="index%2 == 0" [viewRangePixels]="viewRangePixels" [postData]="post">
+      </post>
+    </ng-container>
+  </div>
+
+  <div>
+    footer
   </div>
 </div>
