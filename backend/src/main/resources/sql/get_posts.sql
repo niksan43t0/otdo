@@ -8,4 +8,5 @@ SELECT id,
        post_type
 FROM posts
 WHERE del_flag = FALSE
+  AND post_type = :postType
 ORDER BY id DESC

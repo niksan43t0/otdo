@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Post} from "./model/Post";
+import {Post, PostType} from "./model/Post";
 import {environment} from "../../../environments/environment";
 
 @Injectable({
@@ -14,7 +14,7 @@ export class PostsService {
     this.domain = environment._SERVER + '/posts';
   }
 
-  getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.domain);
+  getPosts(postType: PostType): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.domain}/${postType}`);
   }
 }

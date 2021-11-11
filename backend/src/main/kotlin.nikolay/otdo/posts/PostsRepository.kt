@@ -1,6 +1,7 @@
 package otdo.posts
 
 import org.slf4j.LoggerFactory
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import org.springframework.stereotype.Component
 import otdo.database.SqlLoader
@@ -13,9 +14,9 @@ import java.lang.invoke.MethodHandles
 class PostsRepository(val jdbcTemplate: NamedParameterJdbcTemplate) {
     private val logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass().canonicalName)
 
-    fun getPosts(): List<Post> {
+    fun getPosts(postType: PostType): List<Post> {
         logger.info("[getPosts]")
-        return jdbcTemplate.query(SqlLoader.GET_POSTS) { rs, _ ->
+        return jdbcTemplate.query(SqlLoader.GET_POSTS, MapSqlParameterSource("postType", postType.name)) { rs, _ ->
             Post(
                 rs.getLong("id"),
                 rs.getString("heading"),
