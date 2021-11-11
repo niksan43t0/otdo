@@ -21,6 +21,8 @@ import {NavbarComponent} from "./components/navbar/navbar.component";
 import {NgScrollbarModule} from "ngx-scrollbar";
 import {PostComponent} from "./components/post/post.component";
 import {MainPageResolver} from "./pages/main/MainPageResolver";
+import {FooterComponent} from "./components/footer/footer.component";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import {MainPageResolver} from "./pages/main/MainPageResolver";
     ConfirmationModalComponent,
     NavbarComponent,
     PostComponent,
+    FooterComponent,
   ],
   entryComponents: [
     MessageModalComponent,
@@ -49,6 +52,7 @@ import {MainPageResolver} from "./pages/main/MainPageResolver";
     MatButtonModule,
     MatCardModule,
     NgScrollbarModule,
+    FontAwesomeModule,
   ],
   providers: [
     ServicesResolver,
