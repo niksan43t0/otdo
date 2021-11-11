@@ -7,9 +7,9 @@ data class Post(
     val textColor: String,
     val backgroundColor: String,
     val imgSrc: String,
-    val postType: PostType,
+    val postStyle: PostStyle,
 )
 
-enum class PostType {
+enum class PostStyle {
     PICTURE_LEFT, PICTURE_RIGHT, PICTURE_BOTTOM
 }

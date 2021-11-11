@@ -4,10 +4,10 @@ export interface Post {
   textColor: string;
   imgSrc: string;
   backgroundColor: string;
-  postType: PostType;
+  postStyle: PostStyle;
 }
 
-export enum PostType {
+export enum PostStyle {
   PICTURE_LEFT = "PICTURE_LEFT",
   PICTURE_RIGHT = "PICTURE_RIGHT",
   PICTURE_BOTTOM = "PICTURE_BOTTOM"

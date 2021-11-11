@@ -1,5 +1,5 @@
 import {Component, ElementRef, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {Post} from "../../pages/main/model/Post";
+import {Post, PostStyle} from "../../pages/main/model/Post";
 import {ViewRangePixels} from "../../pages/main/model/ViewRangePixels";
 
 @Component({
@@ -9,16 +9,17 @@ import {ViewRangePixels} from "../../pages/main/model/ViewRangePixels";
 })
 export class PostComponent implements OnChanges {
   @Input() postData!: Post
-  @Input() pictureOnRight: boolean = false;
   @Input() viewRangePixels!: ViewRangePixels;
   animationTriggered: boolean = false;
+
+  PostStyle = PostStyle;
 
   constructor(private elRef: ElementRef) {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!this.animationTriggered && !!changes.viewRangePixels) {
-      if (this.elRef.nativeElement.offsetTop < (changes.viewRangePixels.currentValue.to - 200)) {
+      if (this.elRef.nativeElement.offsetTop < (changes.viewRangePixels.currentValue.to - 300)) {
         this.animationTriggered = true;
       }
     }

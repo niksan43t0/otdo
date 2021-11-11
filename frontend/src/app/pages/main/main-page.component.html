@@ -9,9 +9,8 @@
 
 
   <div class="big-spacer">
-    <ng-container *ngFor="let post of posts; let index = index">
-      <post [pictureOnRight]="index%2 == 0" [viewRangePixels]="viewRangePixels" [postData]="post">
-      </post>
+    <ng-container *ngFor="let post of posts">
+      <post [viewRangePixels]="viewRangePixels" [postData]="post"></post>
     </ng-container>
   </div>
 

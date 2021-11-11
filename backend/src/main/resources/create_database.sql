@@ -15,11 +15,11 @@ CREATE TABLE posts
     text_color       VARCHAR            NOT NULL,
     background_color VARCHAR            NOT NULL,
     img_src          VARCHAR            NOT NULL,
-    post_type        VARCHAR            NOT NULL,
+    post_style        VARCHAR            NOT NULL,
     del_flag         BOOLEAN            NOT NULL DEFAULT FALSE
 );
 
-INSERT INTO posts(heading, post_type, text, text_color, background_color, img_src)
+INSERT INTO posts(heading, post_style, text, text_color, background_color, img_src)
 VALUES ('Лорем', 'PICTURE_LEFT',
         'Лорем ипсум долор сит амет, ех нам натум цорпора вулпутате, сале омнес инцидеринт те нам. Яуо ад солет игнота продессет, ут синт аетерно вис. Еи орнатус цопиосае интеллегам хас, еу виртуте аппареат хонестатис ест, анимал евертитур тинцидунт еам но.',
         'white', 'brown', 'assets/images/picture1.jpg'),

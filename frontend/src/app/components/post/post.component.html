@@ -1,22 +1,35 @@
 <div class="post" [ngStyle]="{'background-color': postData.backgroundColor}">
   <div class="container-xl">
-    <div class="row" [ngClass]="{'flex-row-reverse' : pictureOnRight}">
+    <div class="row" *ngIf="postData.postStyle == PostStyle.PICTURE_LEFT">
       <div class="col-6 big-spacer big-spacer-bottom vertical-align">
-        <img [src]="postData.imgSrc" alt="" class="image"
-             [ngClass]="{
-         'start-left-hidden' : !pictureOnRight,
-         'start-right-hidden' : pictureOnRight,
-         'fade-in' : animationTriggered
-         }"/>
+        <img [src]="postData.imgSrc" alt="" class="w-100 start-left-hidden"
+             [ngClass]="{'fade-in' : animationTriggered}"/>
       </div>
       <div class="col-6 big-spacer big-spacer-bottom vertical-align">
-        <p [ngStyle]="{'color' : postData.textColor}" [ngClass]="{
-         'start-left-hidden pr-5' : pictureOnRight,
-         'start-right-hidden pl-5' : !pictureOnRight,
-         'fade-in' : animationTriggered
-         }">
+        <p [ngStyle]="{'color' : postData.textColor}" class="start-right-hidden pl-5"
+           [ngClass]="{'fade-in' : animationTriggered}">
           {{postData.text}}
         </p>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="postData.postStyle == PostStyle.PICTURE_RIGHT">
+      <div class="col-6 big-spacer big-spacer-bottom vertical-align">
+        <p [ngStyle]="{'color' : postData.textColor}" class="start-left-hidden pr-5"
+           [ngClass]="{'fade-in' : animationTriggered}">
+          {{postData.text}}
+        </p>
+      </div>
+      <div class="col-6 big-spacer big-spacer-bottom vertical-align">
+        <img [src]="postData.imgSrc" alt="" class="w-100 start-right-hidden"
+             [ngClass]="{'fade-in' : animationTriggered}"/>
+      </div>
+    </div>
+
+    <div class="row justify-content-center" *ngIf="postData.postStyle == PostStyle.PICTURE_BOTTOM">
+      <div class="col-8 big-spacer big-spacer-bottom start-bottom-hidden" [ngClass]="{'fade-in' : animationTriggered}">
+        <p [ngStyle]="{'color' : postData.textColor}">{{postData.text}}</p>
+        <img [src]="postData.imgSrc" alt="" class="w-100"/>
       </div>
     </div>
   </div>

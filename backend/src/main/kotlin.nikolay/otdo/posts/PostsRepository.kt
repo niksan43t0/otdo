@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import org.springframework.stereotype.Component
 import otdo.database.SqlLoader
 import otdo.posts.model.Post
-import otdo.posts.model.PostType
+import otdo.posts.model.PostStyle
 import java.lang.invoke.MethodHandles
 
 @Component //TODO when replace with @Repository and open, can't find jdbcTemplate then
@@ -22,7 +22,7 @@ class PostsRepository(val jdbcTemplate: NamedParameterJdbcTemplate) {
                 rs.getString("text_color"),
                 rs.getString("background_color"),
                 rs.getString("img_src"),
-                PostType.valueOf(rs.getString("post_type")),
+                PostStyle.valueOf(rs.getString("post_style")),
             )
         }
     }
