@@ -17,6 +17,7 @@ class PostsRepository(val jdbcTemplate: NamedParameterJdbcTemplate) {
             Post(
                 rs.getLong("id"),
                 rs.getString("text"),
+                rs.getString("text_color"),
                 rs.getString("background_color"),
                 rs.getString("img_src"),
             )
