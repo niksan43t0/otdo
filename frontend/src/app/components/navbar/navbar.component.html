@@ -5,29 +5,29 @@
     </a>
   </div>
   <div class="col-auto vertical-align">
-    <a class="pointer-events-auto" routerLink="services">
+    <a class="pointer-events-auto" routerLink="services" [ngClass]="{'underlined' : currentPage == Page.SERVICES}">
       Услуги
     </a>
   </div>
   <div class="col-auto vertical-align">
-    <a class="pointer-events-auto" routerLink="machines">
+    <a class="pointer-events-auto" routerLink="machines" [ngClass]="{'underlined' : currentPage == Page.MACHINES}">
       Машини
     </a>
   </div>
   <div class="col-auto vertical-align">
-    <a class="pointer-events-auto" routerLink="history">
+    <a class="pointer-events-auto" routerLink="history" [ngClass]="{'underlined' : currentPage == Page.HISTORY}">
       История
     </a>
   </div>
   <div class="col-auto vertical-align">
-    <a class="pointer-events-auto" routerLink="prices">
+    <a class="pointer-events-auto" routerLink="prices" [ngClass]="{'underlined' : currentPage == Page.PRICES}">
       Цени
     </a>
   </div>
   <div class="col-auto vertical-align">
-    <a class="pointer-events-auto" routerLink="gallery">
+    <a class="pointer-events-auto" routerLink="gallery" [ngClass]="{'underlined' : currentPage == Page.GALLERY}">
       Галерия
     </a>
   </div>
-  <!--  с подменюта, които тя си е направила, по дефолт ще има няколко с години-->
+  <!--  TODO с подменюта, които тя си е направила, по дефолт ще има няколко с години-->
 </nav>
