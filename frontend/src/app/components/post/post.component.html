@@ -29,7 +29,7 @@
     <div class="row justify-content-center" *ngIf="postData.postStyle == PostStyle.PICTURE_BOTTOM">
       <div class="col-8 big-spacer big-spacer-bottom start-bottom-hidden" [ngClass]="{'fade-in' : animationTriggered}">
         <p [ngStyle]="{'color' : postData.textColor}">{{postData.text}}</p>
-        <img [src]="postData.imgSrc" alt="" class="w-100"/>
+        <img [src]="postData.imgSrc" alt="" class="image-max-size d-flex m-auto"/>
       </div>
     </div>
   </div>
