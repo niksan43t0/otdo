@@ -7,9 +7,12 @@ import {MainPageComponent} from "./pages/main/main-page.component";
 import {MainPageResolver} from "./pages/main/MainPageResolver";
 import {MachinesPageResolver} from "./pages/machines/machines-page-resolver.service";
 import {MachinesPageComponent} from "./pages/machines/machines-page.component";
+import {ServicesPageComponent} from "./pages/services/services-page.component";
+import {ServicesPageResolver} from "./pages/services/services-page-resolver.service";
 
 const routes: Routes = [
   {path: '', component: MainPageComponent, resolve: {posts: MainPageResolver}},
+  {path: 'services', component: ServicesPageComponent, resolve: {posts: ServicesPageResolver}},
   {path: 'machines', component: MachinesPageComponent, resolve: {posts: MachinesPageResolver}},
   {path: 'prices', component: PricesComponent, resolve: {services: ServicesResolver}},
   {path: 'not-found', component: NotFoundComponent,},

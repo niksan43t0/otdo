@@ -26,12 +26,15 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {GenericPostsPageComponent} from "./pages/generic-posts/generic-posts-page.component";
 import {MachinesPageComponent} from "./pages/machines/machines-page.component";
 import {MachinesPageResolver} from "./pages/machines/machines-page-resolver.service";
+import {ServicesPageComponent} from "./pages/services/services-page.component";
+import {ServicesPageResolver} from "./pages/services/services-page-resolver.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     GenericPostsPageComponent,
     MainPageComponent,
+    ServicesPageComponent,
     MachinesPageComponent,
     NotFoundComponent,
     PricesComponent,
@@ -62,6 +65,7 @@ import {MachinesPageResolver} from "./pages/machines/machines-page-resolver.serv
   providers: [
     ServicesResolver,
     MainPageResolver,
+    ServicesPageResolver,
     MachinesPageResolver,
   ],
   bootstrap: [AppComponent]
