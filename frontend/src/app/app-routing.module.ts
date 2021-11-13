@@ -5,9 +5,12 @@ import {PricesComponent} from "./pages/services/prices.component";
 import {ServicesResolver} from "./pages/services/ServicesResolver";
 import {MainPageComponent} from "./pages/main/main-page.component";
 import {MainPageResolver} from "./pages/main/MainPageResolver";
+import {MachinesPageResolver} from "./pages/machines/machines-page-resolver.service";
+import {MachinesPageComponent} from "./pages/machines/machines-page.component";
 
 const routes: Routes = [
   {path: '', component: MainPageComponent, resolve: {posts: MainPageResolver}},
+  {path: 'machines', component: MachinesPageComponent, resolve: {posts: MachinesPageResolver}},
   {path: 'prices', component: PricesComponent, resolve: {services: ServicesResolver}},
   {path: 'not-found', component: NotFoundComponent,},
   // {path: '**', redirectTo: 'not-found/.'}, TODO with server side rendering

@@ -4,6 +4,7 @@ import {NgScrollbar} from "ngx-scrollbar";
 import {filter} from "rxjs/operators";
 import {MainPageComponent} from "./pages/main/main-page.component";
 import {ViewRangePixels} from "./pages/generic-posts/model/ViewRangePixels";
+import {GenericPageComponent} from "./pages/generic-posts/model/GenericPageComponent";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ import {ViewRangePixels} from "./pages/generic-posts/model/ViewRangePixels";
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
   private scrollSubscription = Subscription.EMPTY;
-  private mainPageComponent: MainPageComponent | null = null;
+  private pageComponent: GenericPageComponent | null = null;
   private vhPixels: number = 0;
 
   // Get scrollbar component reference
@@ -24,14 +25,14 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.updateVhPixels();
     this.scrollSubscription = this.scrollbarRef.scrolled
-      .pipe(filter(() => this.mainPageComponent != null))
+      .pipe(filter(() => this.pageComponent != null))
       .subscribe((e: Event) => this.zone.run(() => {
         const scrolled = (e.target as HTMLElement).scrollTop;
-        this.mainPageComponent!!.viewRangePixels = new ViewRangePixels(scrolled, scrolled + this.vhPixels);
-        if (scrolled <= this.vhPixels) { //TODO can move inside MainPageComponent if unneeded here
+        this.pageComponent!!.viewRangePixels = new ViewRangePixels(scrolled, scrolled + this.vhPixels);
+        if (this.pageComponent instanceof MainPageComponent && scrolled <= this.vhPixels) { //TODO can move inside MainPageComponent if unneeded here
           const marginLeftInVw = scrolled / this.vhPixels * 100;
-          this.mainPageComponent!!.movingPaperRef.nativeElement.style.marginLeft = `${marginLeftInVw}vw`;
-          this.mainPageComponent!!.movingPaperInside.nativeElement.style.marginLeft = `-${marginLeftInVw}vw`;
+          this.pageComponent.movingPaperRef.nativeElement.style.marginLeft = `${marginLeftInVw}vw`;
+          this.pageComponent.movingPaperInside.nativeElement.style.marginLeft = `-${marginLeftInVw}vw`;
         }
       }));
   }
@@ -41,7 +42,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   onActivateRouter(component: any) {
-    this.mainPageComponent = component instanceof MainPageComponent ? component : null;
+    this.pageComponent = component;
   }
 
   updateVhPixels() {
