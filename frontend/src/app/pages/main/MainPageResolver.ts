@@ -1,8 +1,8 @@
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
 import {Injectable} from "@angular/core";
-import {Post, PostType} from "./model/Post";
-import {PostsService} from "./posts.service";
+import {Post, PostType} from "../generic-posts/model/Post";
+import {PostsService} from "../generic-posts/posts.service";
 
 @Injectable()
 export class MainPageResolver implements Resolve<Post[]> {

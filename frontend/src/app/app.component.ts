@@ -3,7 +3,7 @@ import {Subscription} from "rxjs";
 import {NgScrollbar} from "ngx-scrollbar";
 import {filter} from "rxjs/operators";
 import {MainPageComponent} from "./pages/main/main-page.component";
-import {ViewRangePixels} from "./pages/main/model/ViewRangePixels";
+import {ViewRangePixels} from "./pages/generic-posts/model/ViewRangePixels";
 
 @Component({
   selector: 'app-root',

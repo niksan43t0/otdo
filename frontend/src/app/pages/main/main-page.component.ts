@@ -1,7 +1,7 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {ViewRangePixels} from "./model/ViewRangePixels";
+import {ViewRangePixels} from "../generic-posts/model/ViewRangePixels";
 import {ActivatedRoute} from "@angular/router";
-import {Post} from "./model/Post";
+import {Post} from "../generic-posts/model/Post";
 
 @Component({
   selector: 'main-page-component',
@@ -15,7 +15,6 @@ export class MainPageComponent {
   posts: Post[]
 
   constructor(private route: ActivatedRoute) {
-    console.log(this.route.snapshot.data.posts);
     this.posts = this.route.snapshot.data.posts;
   }
 }

@@ -1,6 +1,6 @@
 import {Component, ElementRef, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {Post, PostStyle} from "../../pages/main/model/Post";
-import {ViewRangePixels} from "../../pages/main/model/ViewRangePixels";
+import {Post, PostStyle} from "../../pages/generic-posts/model/Post";
+import {ViewRangePixels} from "../../pages/generic-posts/model/ViewRangePixels";
 
 @Component({
   selector: 'post',
