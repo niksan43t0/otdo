@@ -42,6 +42,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   onActivateRouter(component: any) {
+    this.scrollbarRef.scrollTo({top: 0, duration: 0});
     this.pageComponent = component;
   }
 
