@@ -28,6 +28,8 @@ import {MachinesPageComponent} from "./pages/machines/machines-page.component";
 import {MachinesPageResolver} from "./pages/machines/machines-page-resolver.service";
 import {ServicesPageComponent} from "./pages/services/services-page.component";
 import {ServicesPageResolver} from "./pages/services/services-page-resolver.service";
+import {GalleryPageComponent} from "./pages/gallery/gallery-page.component";
+import {GalleryPageResolver} from "./pages/gallery/gallery-page-resolver.service";
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import {ServicesPageResolver} from "./pages/services/services-page-resolver.serv
     MainPageComponent,
     ServicesPageComponent,
     MachinesPageComponent,
+    GalleryPageComponent,
     NotFoundComponent,
     PricesComponent,
     MessageModalComponent,
@@ -67,6 +70,7 @@ import {ServicesPageResolver} from "./pages/services/services-page-resolver.serv
     MainPageResolver,
     ServicesPageResolver,
     MachinesPageResolver,
+    GalleryPageResolver,
   ],
   bootstrap: [AppComponent]
 })
