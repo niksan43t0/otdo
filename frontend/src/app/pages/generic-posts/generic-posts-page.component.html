@@ -1,0 +1,8 @@
+<div class="generic-posts position-relative">
+  <ng-content></ng-content>
+  <div>
+    <ng-container *ngFor="let post of posts">
+      <post [viewRangePixels]="viewRangePixels" [postData]="post"></post>
+    </ng-container>
+  </div>
+</div>

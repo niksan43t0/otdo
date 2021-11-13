@@ -1,18 +1,10 @@
-<div class="main-page position-relative">
-  <div class="main-first-page position-relative d-flex">
+<generic-posts [posts]="posts" [viewRangePixels]="viewRangePixels">
+  <div class="main-first-page big-padding-bottom position-relative d-flex">
     <img class="logo mt-auto mb-auto" src="assets/images/logo-sample.PNG" alt=""/>
   </div>
   <div #mainPageMovingPaper class="moving-paper position-absolute d-flex">
     <img #mainPageMovingPaperInside class="moving-paper-inside logo mt-auto mb-auto"
          src="assets/images/logo-sample-alt.PNG" alt=""/>
   </div>
-
-
-  <div class="big-spacer">
-    <ng-container *ngFor="let post of posts">
-      <post [viewRangePixels]="viewRangePixels" [postData]="post"></post>
-    </ng-container>
-  </div>
-
-  <app-footer></app-footer>
-</div>
+</generic-posts>
+<app-footer></app-footer>

@@ -1,37 +1,35 @@
-.main-page {
-  $transform-skew: 15deg;
+$transform-skew: 15deg;
+
+$space-above-logo: 20vh;
+$space-left-of-logo: 10vw;
+$paper-height: 70vh;
+
+.main-first-page {
   background-color: #1b1b1b;
-
-  $space-above-logo: 20vh;
-  $space-left-of-logo: 10vw;
-  $paper-height: 70vh;
-
+  box-sizing: content-box; //exclude padding from size
   padding-top: $space-above-logo;
+  padding-left: $space-left-of-logo;
+  height: $paper-height;
+}
 
-  .main-first-page {
-    margin-left: $space-left-of-logo;
-    height: $paper-height;
+.moving-paper {
+  top: $space-above-logo;
+  left: $space-left-of-logo;
+  height: $paper-height;
+  width: 100vw;
+  background-color: white;
+  transform: skewX(-$transform-skew);
+  overflow: hidden;
+
+  .moving-paper-inside {
+    transform: skewX($transform-skew);
   }
 
-  .moving-paper {
-    top: $space-above-logo;
-    left: $space-left-of-logo;
-    height: $paper-height;
-    width: 100vw;
-    background-color: white;
-    transform: skewX(-$transform-skew);
-    overflow: hidden;
+  //-webkit-box-shadow: -6px 7px 25px 4px rgba(0,0,0,0.79);
+  //box-shadow: -6px 7px 25px 4px rgba(0,0,0,0.79);
+}
 
-    .moving-paper-inside {
-      transform: skewX($transform-skew);
-    }
-
-    //-webkit-box-shadow: -6px 7px 25px 4px rgba(0,0,0,0.79);
-    //box-shadow: -6px 7px 25px 4px rgba(0,0,0,0.79);
-  }
-
-  .logo {
-    max-height: 50vh;
-    max-width: 80vw;
-  }
+.logo {
+  max-height: 50vh;
+  max-width: 80vw;
 }

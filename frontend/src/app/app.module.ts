@@ -23,10 +23,12 @@ import {PostComponent} from "./components/post/post.component";
 import {MainPageResolver} from "./pages/main/MainPageResolver";
 import {FooterComponent} from "./components/footer/footer.component";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {GenericPostsPageComponent} from "./pages/generic-posts/generic-posts-page.component";
 
 @NgModule({
   declarations: [
     AppComponent,
+    GenericPostsPageComponent,
     MainPageComponent,
     NotFoundComponent,
     PricesComponent,
