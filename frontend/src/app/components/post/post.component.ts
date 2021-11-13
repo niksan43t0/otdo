@@ -19,7 +19,11 @@ export class PostComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!this.animationTriggered && !!changes.viewRangePixels) {
-      if (this.elRef.nativeElement.offsetTop < (changes.viewRangePixels.currentValue.to - 300)) {
+      if (changes.viewRangePixels.firstChange) {
+        if (this.elRef.nativeElement.offsetTop <= changes.viewRangePixels.currentValue.to) {
+          setTimeout(() => this.animationTriggered = true); //trigger animation after drawn as hidden
+        }
+      } else if (this.elRef.nativeElement.offsetTop < (changes.viewRangePixels.currentValue.to - 200)) {
         this.animationTriggered = true;
       }
     }

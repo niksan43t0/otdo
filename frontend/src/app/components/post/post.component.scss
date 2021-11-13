@@ -1,4 +1,12 @@
+$transition-effects: 1000ms ease-in;
+
 .post {
+  -webkit-transition: $transition-effects;
+  -moz-transition: $transition-effects;
+  -ms-transition: $transition-effects;
+  -o-transition: $transition-effects;
+  transition: $transition-effects;
+
   .start-right-hidden {
     opacity: 0;
     -webkit-transform: translateX(20px);
@@ -35,11 +43,11 @@
     -o-transform: translate(0);
     transform: translate(0);
 
-    -webkit-transition: 1000ms ease-in;
-    -moz-transition: 1000ms ease-in;
-    -ms-transition: 1000ms ease-in;
-    -o-transition: 1000ms ease-in;
-    transition: 1000ms ease-in;
+    -webkit-transition: $transition-effects;
+    -moz-transition: $transition-effects;
+    -ms-transition: $transition-effects;
+    -o-transition: $transition-effects;
+    transition: $transition-effects;
   }
 
   .image-max-size {

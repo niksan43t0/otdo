@@ -1,4 +1,4 @@
-<div class="post" [ngStyle]="{'background-color': postData.backgroundColor}">
+<div class="post" [ngStyle]="{'background-color': (animationTriggered && postData.backgroundColor)}">
   <div class="container-xl">
     <div class="row" *ngIf="postData.postStyle == PostStyle.PICTURE_LEFT">
       <div class="col-6 big-spacer big-spacer-bottom vertical-align">
